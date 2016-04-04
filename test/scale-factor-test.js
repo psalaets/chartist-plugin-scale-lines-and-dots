@@ -40,3 +40,19 @@ test('handles value below middle, above min', function (t) {
 
   t.equals(scaleFactor, 0.25);
 });
+
+test('returns 0 for value below min', function (t) {
+  t.plan(1);
+
+  var scaled = calculateScaleFactor(4, 8, 3);
+
+  t.equals(scaled, 0);
+});
+
+test('returns 1 for value above max', function (t) {
+  t.plan(1);
+
+  var scaled = calculateScaleFactor(4, 8, 9);
+
+  t.equals(scaled, 1);
+});
