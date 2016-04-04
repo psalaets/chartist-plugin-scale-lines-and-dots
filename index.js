@@ -1,6 +1,10 @@
 module.exports.calculateScaleFactor = calculateScaleFactor;
 
 function calculateScaleFactor(min, max, value) {
+  if (max <= min) {
+    throw new Error('max must be > min');
+  }
+
   var delta = max - min;
   var scaleFactor = (value - min) / delta;
 
