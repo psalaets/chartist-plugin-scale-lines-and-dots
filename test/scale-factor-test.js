@@ -56,3 +56,19 @@ test('returns 1 for value above max', function (t) {
 
   t.equals(scaled, 1);
 });
+
+test('throws Error when max is equal to min', function (t) {
+  t.plan(1);
+
+  t.throws(function () {
+    calculateScaleFactor(4, 4, 9);
+  });
+});
+
+test('throws Error when max is below min', function (t) {
+  t.plan(1);
+
+  t.throws(function () {
+    calculateScaleFactor(4, 4, 3);
+  });
+});
