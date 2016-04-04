@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "tape 'test/*.js'"
+    "test": "tape 'test/*.js' | faucet"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "faucet": "0.0.1",
     "tape": "^4.5.1"
   }
 }
