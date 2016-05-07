@@ -5,13 +5,21 @@
   "main": "index.js",
   "scripts": {
     "test:unit": "tape 'test/unit/*.js' | faucet",
-    "test": "npm run test:unit"
+    "test:functional": "karma start",
+    "test": "npm run test:unit && npm run test:functional"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "chartist": "^0.9.7",
     "faucet": "0.0.1",
-    "tape": "^4.5.1"
+    "karma": "^0.13.22",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-tap": "^1.0.4",
+    "karma-webpack": "^1.7.0",
+    "phantomjs-prebuilt": "^2.1.7",
+    "tape": "^4.5.1",
+    "webpack": "^1.13.0"
   }
 }

@@ -1,5 +1,39 @@
-module.exports.calculateScaleFactor = calculateScaleFactor;
-module.exports.scaleValue = scaleValue;
+module.exports = makePluginInstance;
+
+makePluginInstance.calculateScaleFactor = calculateScaleFactor;
+makePluginInstance.scaleValue = scaleValue;
+
+function makePluginInstance() {
+  return function scaleLinesAndDotsInstance(chart) {
+    chart.on('draw', function(data) {
+      if (data.type === 'point') {
+        scaleDot(data);
+      } else if (data.type === 'line') {
+        scaleLine(data);
+      }
+    });
+  };
+}
+
+function scaleLine(data) {
+  scaleElementStrokeWidth(data, scaleValue.bind(null, 2, 6));
+}
+
+function scaleDot(data) {
+  scaleElementStrokeWidth(data, scaleValue.bind(null, 8, 16));
+}
+
+function scaleElementStrokeWidth(data, scaleFn) {
+  var element = data.element;
+  var svgWidth = element.root().width();
+
+  var scaleFactor = calculateScaleFactor(360, 1000, svgWidth);
+  var scaledStrokeWidth = scaleFn(scaleFactor);
+
+  element.attr({
+    style: 'stroke-width: ' + scaledStrokeWidth
+  });
+}
 
 function calculateScaleFactor(min, max, value) {
   if (max <= min) {
