@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "tape 'test/*.js' | faucet"
+    "test:unit": "tape 'test/unit/*.js' | faucet",
+    "test": "npm run test:unit"
   },
   "keywords": [],
   "author": "",
