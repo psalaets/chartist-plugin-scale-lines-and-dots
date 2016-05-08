@@ -4,42 +4,43 @@ makePluginInstance.calculateScaleFactor = calculateScaleFactor;
 makePluginInstance.scaleValue = scaleValue;
 
 function makePluginInstance() {
+  var options = {
+    dot: {
+      min: 8,
+      max: 16,
+      unit: 'px'
+    },
+    line: {
+      min: 2,
+      max: 6,
+      unit: 'px'
+    },
+    svg: {
+      min: 360,
+      max: 1000
+    }
+  };
+
   return function scaleLinesAndDotsInstance(chart) {
     var svgWidth;
 
     chart.on('draw', function(data) {
       if (data.type === 'point') {
-        scaleDot(data);
+        setStrokeWidth(data, options.dot, options.svg);
       } else if (data.type === 'line') {
-        scaleLine(data);
+        setStrokeWidth(data, options.line, options.svg);
       }
     });
 
     /**
     * @param {Object} data - Object passed to 'draw' event listener
     */
-    function scaleLine(data) {
-      scaleElementStrokeWidth(data, scaleValue.bind(null, 2, 6));
-    }
+    function setStrokeWidth(data, widthRange, thresholds) {
+      var scaleFactor = calculateScaleFactor(thresholds.min, thresholds.max, getSvgWidth(data));
+      var strokeWidth = scaleValue(widthRange.min, widthRange.max, scaleFactor);
 
-    /**
-    * @param {Object} data - Object passed to 'draw' event listener
-    */
-    function scaleDot(data) {
-      scaleElementStrokeWidth(data, scaleValue.bind(null, 8, 16));
-    }
-
-    /**
-    * @param {Object} data - Object passed to 'draw' event listener
-    * @param {Function} scaleFn - Takes scale factor and returns scaled value
-    */
-    function scaleElementStrokeWidth(data, scaleFn) {
-      var scaleFactor = calculateScaleFactor(360, 1000, getSvgWidth(data));
-      var scaledStrokeWidth = scaleFn(scaleFactor);
-      var element = data.element;
-
-      element.attr({
-        style: 'stroke-width: ' + scaledStrokeWidth
+      data.element.attr({
+        style: 'stroke-width: ' + strokeWidth + widthRange.unit
       });
     }
 
