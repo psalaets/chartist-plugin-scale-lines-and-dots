@@ -22,7 +22,7 @@ function makePluginInstance() {
   };
 
   return function scaleLinesAndDotsInstance(chart) {
-    var svgWidth;
+    var _svgWidth;
 
     chart.on('draw', function(data) {
       if (data.type === 'point') {
@@ -33,7 +33,11 @@ function makePluginInstance() {
     });
 
     /**
+    * Set stroke-width of the element of a 'data' object, based on chart width.
+    *
     * @param {Object} data - Object passed to 'draw' event listener
+    * @param {Object} widthRange - Specifies min/max stroke-width and unit.
+    * @param {Object} thresholds - Specifies chart width to base scaling on.
     */
     function setStrokeWidth(data, widthRange, thresholds) {
       var scaleFactor = calculateScaleFactor(thresholds.min, thresholds.max, getSvgWidth(data));
@@ -48,7 +52,7 @@ function makePluginInstance() {
     * @param {Object} data - Object passed to 'draw' event listener
     */
     function getSvgWidth(data) {
-      return svgWidth = svgWidth || data.element.root().width();
+      return _svgWidth = _svgWidth || data.element.root().width();
     }
   };
 }
