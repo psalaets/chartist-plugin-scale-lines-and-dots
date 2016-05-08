@@ -15,14 +15,24 @@ function makePluginInstance() {
       }
     });
 
+    /**
+    * @param {Object} data - Object passed to 'draw' event listener
+    */
     function scaleLine(data) {
       scaleElementStrokeWidth(data, scaleValue.bind(null, 2, 6));
     }
 
+    /**
+    * @param {Object} data - Object passed to 'draw' event listener
+    */
     function scaleDot(data) {
       scaleElementStrokeWidth(data, scaleValue.bind(null, 8, 16));
     }
 
+    /**
+    * @param {Object} data - Object passed to 'draw' event listener
+    * @param {Function} scaleFn - Takes scale factor and returns scaled value
+    */
     function scaleElementStrokeWidth(data, scaleFn) {
       var scaleFactor = calculateScaleFactor(360, 1000, getSvgWidth(data));
       var scaledStrokeWidth = scaleFn(scaleFactor);
@@ -33,6 +43,9 @@ function makePluginInstance() {
       });
     }
 
+    /**
+    * @param {Object} data - Object passed to 'draw' event listener
+    */
     function getSvgWidth(data) {
       return svgWidth = svgWidth || data.element.root().width();
     }
