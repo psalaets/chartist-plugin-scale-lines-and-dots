@@ -33,7 +33,7 @@ test('chart width equal to lower threshold', function(t) {
 test('chart width between thresholds', function(t) {
   t.plan(2);
 
-  var chart = setUpChart(520); // 25% from lower
+  var chart = setUpChart(520); // 25% of the way from lower to upper
 
   chart.on('created', function() {
     t.equals(getLineStrokeWidth(), '3px');

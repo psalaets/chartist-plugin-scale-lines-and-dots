@@ -1,16 +1,21 @@
 {
   "name": "chartist-plugin-scale-lines-and-dots",
   "version": "1.0.0",
-  "description": "",
+  "description": "Chartist plugin to size lines and dots based on chart width",
   "main": "index.js",
   "scripts": {
     "test:unit": "tape 'test/unit/*.js' | faucet",
     "test:functional": "karma start",
     "test": "npm run test:unit && npm run test:functional"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["chartist", "plugin", "scale", "line", "dot", "point"],
+  "author": "Paul Salaets <psalaets@gmail.com>",
   "license": "MIT",
+  "homepage": "https://github.com/psalaets/chartist-plugin-scale-lines-and-dots",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/psalaets/chartist-plugin-scale-lines-and-dots.git"
+  },
   "devDependencies": {
     "chartist": "^0.9.7",
     "faucet": "0.0.1",
