@@ -1,10 +1,12 @@
+var Chartist = require('chartist');
+
 module.exports = makePluginInstance;
 
 makePluginInstance.calculateScaleFactor = calculateScaleFactor;
 makePluginInstance.scaleValue = scaleValue;
 
-function makePluginInstance() {
-  var options = {
+function makePluginInstance(userOptions) {
+  var defaultOptions = {
     dot: {
       min: 8,
       max: 16,
@@ -20,6 +22,8 @@ function makePluginInstance() {
       max: 1000
     }
   };
+
+  var options = Chartist.extend({}, defaultOptions, userOptions);
 
   return function scaleLinesAndDotsInstance(chart) {
     var actualSvgWidth;
