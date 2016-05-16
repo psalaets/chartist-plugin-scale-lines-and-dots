@@ -1,6 +1,6 @@
 var test = require('tape');
 
-var scaleLinesAndDots = require('../../');
+var scaleLinesAndDots = require('../');
 var Chartist = require('chartist');
 var chartContainerId = 'chart-container';
 
@@ -33,7 +33,8 @@ test('chart width equal to lower threshold', function(t) {
 test('chart width between thresholds', function(t) {
   t.plan(2);
 
-  var chart = setUpChart(520); // 25% of the way from lower to upper
+  // 520 is 25% of the way from lower threshold to upper threshold
+  var chart = setUpChart(520);
 
   chart.on('created', function() {
     t.equals(getLineStrokeWidth(), '3px');
@@ -69,7 +70,7 @@ test('chart width greater than upper threshold', function(t) {
   });
 });
 
-function setUpChart(width) {
+function setUpChart(width, options) {
   addChartContainer(width);
 
   return new Chartist.Line(getChartContainer(), {
@@ -80,7 +81,7 @@ function setUpChart(width) {
     ]
   }, {
     plugins: [
-      scaleLinesAndDots()
+      scaleLinesAndDots(options)
     ]
   });
 }

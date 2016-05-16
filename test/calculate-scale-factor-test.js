@@ -1,5 +1,5 @@
 var test = require('tape');
-var calculateScaleFactor = require('../../').calculateScaleFactor;
+var calculateScaleFactor = require('../').calculateScaleFactor;
 
 test('returns 0.5 for value in middle', function (t) {
   t.plan(1);

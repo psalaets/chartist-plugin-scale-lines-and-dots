@@ -1,5 +1,5 @@
 var test = require('tape');
-var scaleValue = require('../../').scaleValue;
+var scaleValue = require('../').scaleValue;
 
 test('returns min when scaleFactor is 0', function (t) {
   t.plan(1);
