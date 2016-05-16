@@ -70,7 +70,7 @@ test('chart width greater than upper threshold', function(t) {
   });
 });
 
-test('with custom settings', function(t) {
+test('with all sizing options specified', function(t) {
   t.plan(2);
 
   var chart = setUpChart(750, {
@@ -96,7 +96,30 @@ test('with custom settings', function(t) {
 
     tearDown();
   });
-})
+});
+
+test('with some sizing options omitted', function(t) {
+  t.plan(2);
+
+  var chart = setUpChart(750, {
+    dot: {
+      min: 10,
+      max: 15,
+      unit: 'em'
+    },
+    svgWidth: {
+      min: 500,
+      max: 1000
+    }
+  });
+
+  chart.on('created', function() {
+    t.equals(getLineStrokeWidth(), '4px');
+    t.equals(getDotStrokeWidth(), '12.5em');
+
+    tearDown();
+  });
+});
 
 function setUpChart(width, options) {
   addChartContainer(width);
