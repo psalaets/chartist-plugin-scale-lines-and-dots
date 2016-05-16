@@ -15,20 +15,20 @@ function makePluginInstance() {
       max: 6,
       unit: 'px'
     },
-    svg: {
+    svgWidth: {
       min: 360,
       max: 1000
     }
   };
 
   return function scaleLinesAndDotsInstance(chart) {
-    var _svgWidth;
+    var actualSvgWidth;
 
     chart.on('draw', function(data) {
       if (data.type === 'point') {
-        setStrokeWidth(data, options.dot, options.svg);
+        setStrokeWidth(data, options.dot, options.svgWidth);
       } else if (data.type === 'line') {
-        setStrokeWidth(data, options.line, options.svg);
+        setStrokeWidth(data, options.line, options.svgWidth);
       }
     });
 
@@ -40,7 +40,7 @@ function makePluginInstance() {
     * @param {Object} thresholds - Specifies chart width to base scaling on.
     */
     function setStrokeWidth(data, widthRange, thresholds) {
-      var scaleFactor = calculateScaleFactor(thresholds.min, thresholds.max, getSvgWidth(data));
+      var scaleFactor = calculateScaleFactor(thresholds.min, thresholds.max, getActualSvgWidth(data));
       var strokeWidth = scaleValue(widthRange.min, widthRange.max, scaleFactor);
 
       data.element.attr({
@@ -51,8 +51,8 @@ function makePluginInstance() {
     /**
     * @param {Object} data - Object passed to 'draw' event listener
     */
-    function getSvgWidth(data) {
-      return _svgWidth = _svgWidth || data.element.root().width();
+    function getActualSvgWidth(data) {
+      return actualSvgWidth = actualSvgWidth || data.element.root().width();
     }
   };
 }
