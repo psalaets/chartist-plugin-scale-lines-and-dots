@@ -9,12 +9,12 @@ function makePluginInstance(userOptions) {
   var defaultOptions = {
     dot: {
       min: 8,
-      max: 16,
+      max: 10,
       unit: 'px'
     },
     line: {
       min: 2,
-      max: 6,
+      max: 4,
       unit: 'px'
     },
     svgWidth: {

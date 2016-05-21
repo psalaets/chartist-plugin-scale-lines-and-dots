@@ -37,8 +37,8 @@ test('chart width between thresholds', function(t) {
   var chart = setUpChart(520);
 
   chart.on('created', function() {
-    t.equals(getLineStrokeWidth(), '3px');
-    t.equals(getDotStrokeWidth(), '10px');
+    t.equals(getLineStrokeWidth(), '2.5px');
+    t.equals(getDotStrokeWidth(), '8.5px');
 
     tearDown();
   });
@@ -50,8 +50,8 @@ test('chart width equal to upper threshold', function(t) {
   var chart = setUpChart(1000);
 
   chart.on('created', function() {
-    t.equals(getLineStrokeWidth(), '6px');
-    t.equals(getDotStrokeWidth(), '16px');
+    t.equals(getLineStrokeWidth(), '4px');
+    t.equals(getDotStrokeWidth(), '10px');
 
     tearDown();
   });
@@ -63,8 +63,8 @@ test('chart width greater than upper threshold', function(t) {
   var chart = setUpChart(1200);
 
   chart.on('created', function() {
-    t.equals(getLineStrokeWidth(), '6px');
-    t.equals(getDotStrokeWidth(), '16px');
+    t.equals(getLineStrokeWidth(), '4px');
+    t.equals(getDotStrokeWidth(), '10px');
 
     tearDown();
   });
@@ -114,7 +114,7 @@ test('with some sizing options omitted', function(t) {
   });
 
   chart.on('created', function() {
-    t.equals(getLineStrokeWidth(), '4px');
+    t.equals(getLineStrokeWidth(), '3px');
     t.equals(getDotStrokeWidth(), '12.5em');
 
     tearDown();

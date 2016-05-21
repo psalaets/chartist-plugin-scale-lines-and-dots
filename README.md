@@ -28,7 +28,7 @@ Everything is optional including the options object itself.
   dot: {
     // Minimum stroke-width a dot can have, default: 8
     min: Number,
-    // Maximum stroke-width a dot can have, default: 16
+    // Maximum stroke-width a dot can have, default: 10
     max: Number,
     // Unit used for dot's stroke-width, default: 'px'
     unit: String
@@ -36,7 +36,7 @@ Everything is optional including the options object itself.
   line: {
     // Minimum stroke-width a line can have, default: 2
     min: Number,
-    // Maximum stroke-width a line can have, default: 6
+    // Maximum stroke-width a line can have, default: 4
     max: Number,
     // Unit used for line's stroke-width, default: 'px'
     unit: String
