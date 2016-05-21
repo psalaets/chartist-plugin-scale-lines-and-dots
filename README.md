@@ -1,6 +1,6 @@
 # chartist-plugin-scale-lines-and-dots
 
-Chartist plugin to size lines and dots based on chart width.
+Chartist plugin to scale lines and dots based on chart width.
 
 ## Install
 
