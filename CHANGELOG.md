@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.1] - 2016-05-21
+
+### Fixed
+
+- Stop caching svg width because it breaks when chart rerenders on window resize.
+
 ## [1.1.0] - 2016-05-15
 
 ### Added

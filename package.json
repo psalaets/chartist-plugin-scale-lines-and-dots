@@ -1,6 +1,6 @@
 {
   "name": "chartist-plugin-scale-lines-and-dots",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Chartist plugin to scale lines and dots based on chart width",
   "main": "index.js",
   "scripts": {
