@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo of chartist-plugin-scale-lines-and-dots</title>
+
+  <link rel="stylesheet" href="node_modules/chartist/dist/chartist.css">
+  <style>
+    .charts {
+      width: 75%;
+    }
+
+    .small-charts {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .small-chart {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>With plugin</h1>
+  <div class="charts">
+    <div class="small-charts">
+      <div id="s1" class="small-chart"></div>
+      <div id="s2" class="small-chart"></div>
+      <div id="s3" class="small-chart"></div>
+    </div>
+    <div class="big-chart">
+      <div id="b1"></div>
+    </div>
+  </div>
+
+  <h1>Without plugin</h1>
+  <div class="charts">
+    <div class="small-charts">
+      <div id="s4" class="small-chart"></div>
+      <div id="s5" class="small-chart"></div>
+      <div id="s6" class="small-chart"></div>
+    </div>
+    <div class="big-chart">
+      <div id="b2"></div>
+    </div>
+  </div>
+
+
+  <script src="bundle.js"></script>
+</body>
+</html>
