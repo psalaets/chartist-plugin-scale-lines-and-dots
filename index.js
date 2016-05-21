@@ -56,7 +56,7 @@ function makePluginInstance(userOptions) {
     * @param {Object} data - Object passed to 'draw' event listener
     */
     function getActualSvgWidth(data) {
-      return actualSvgWidth = actualSvgWidth || data.element.root().width();
+      return data.element.root().width();
     }
   };
 }
