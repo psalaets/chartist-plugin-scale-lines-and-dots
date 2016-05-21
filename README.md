@@ -2,6 +2,12 @@
 
 Chartist plugin to scale lines and dots based on chart width.
 
+## Use Case
+
+When there are small line charts and media queries aren't sufficient.
+
+See [demo](http://psalaets.github.io/chartist-plugin-scale-lines-and-dots/demo)
+
 ## Install
 
 `npm install chartist-plugin-scale-lines-and-dots --save`
