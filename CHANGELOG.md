@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.0] - 2016-05-22
+
+### Changed
+
+- Default max dot width was decreased to be same size as chartist default, which is 10px.
+- Default max line width was decreased to be same size as chartist default, which is 4px.
+
 ## [1.1.1] - 2016-05-21
 
 ### Fixed
